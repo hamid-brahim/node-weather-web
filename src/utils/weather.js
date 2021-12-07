@@ -9,7 +9,8 @@ const forcast = (latitude, longitude, callback) => {
         } else if (body.error){
             callback('Unable to find location', undefined)
         }else {
-            callback(undefined, `The weather in ${body.location.name} is ${body.current.weather_descriptions[0]}. Currently, it is ${body.current.temperature} degrees`)
+            callback(undefined, body.current.weather_descriptions[0] + ". It is currently" + body.current.temperature + "degrees out."
+            + "It feels like." + body.current.feelslike + "degrees out." + " The humidity is " + body.current.humidity + "%.")
         }
 
     })
